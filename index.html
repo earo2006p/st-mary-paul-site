@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كنيسة العذراء والقديس بولس الرسول - الحضرة الجديدة</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --primary: #f0d57e;
+      --primary-light: #855517;
+      --primary-dark: #a58357;
+      --gold: #d4af37;
+      --gold-light: #f0d77a;
+      --cream: #faf8f5;
+      --dark: #1a1a2e;
+      --light: #ffffff;
+      --gray: #64748b;
+      --shadow: 0 10px 40px rgba(0,0,0,0.1);
+      --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      padding: 12px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+    }
+
+    .logo img {
+      width: 70px;
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid white;
+      object-fit: cover;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .logo span {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cross-icon {
+      font-size: 5rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .hero h2 {
+      color: white;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: 800;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--dark);
+      box-shadow: 0 8px 25px rgba(212,175,55,0.4);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212,175,55,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .section-title h2 i {
+      width: 55px;
+      height: 55px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+
+    /* Cards Grid - Masses and Services Side by Side */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      transition: all 0.4s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold);
+    }
+
+    .card-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card .card-icon {
+      background: linear-gradient(135deg, #e8f4f8, #d1e9f0);
+      color: var(--primary);
+    }
+
+    .mass-card .card-icon {
+      background: linear-gradient(135deg, #fef9e7, #fdebb3);
+      color: #b8860b;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .card-time {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 600;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    /* Priests - Side by Side */
+    .priests-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .priest-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+
+    .priest-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .priest-photo {
+      height: 220px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      overflow: hidden;
+    }
+
+    .priest-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .priest-card:hover .priest-photo img {
+      transform: scale(1.1);
+    }
+
+    .priest-info {
+      padding: 25px;
+    }
+
+    .priest-name {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .priest-role {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a.whatsapp:hover {
+      background: #25D366;
+      color: white;
+    }
+
+    .social-links a.facebook:hover {
+      background: #1877F2;
+      color: white;
+    }
+
+    /* Events */
+    .events-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .event-item {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .event-item:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .event-date {
+      background: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 15px;
+      text-align: center;
+      min-width: 80px;
+    }
+
+    .event-date .day {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .event-date .month {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .event-details h4 {
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .event-details p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .event-time {
+      margin-right: auto;
+      background: #fef9e7;
+      color: #b8860b;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.15);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-question {
+      padding: 22px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--dark);
+    }
+
+    .faq-question i {
+      transition: all 0.3s ease;
+      color: var(--primary);
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 25px 22px;
+      max-height: 200px;
+    }
+
+    /* Map */
+    .map-section {
+      padding: 80px 20px;
+      background: var(--cream);
+    }
+
+    .map-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 25px;
+      overflow: hidden;
+      height: 400px;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 60px 20px 25px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-section h4 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .footer-section p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+      padding-right: 8px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .footer-social a {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--gold);
+      transform: translateY(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 999;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-light);
+      transform: translateY(-5px);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal {
+      background: white;
+      border-radius: 25px;
+      padding: 40px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      animation: slideUp 0.4s ease;
+      position: relative;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--gray);
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--dark);
+    }
+
+    .modal-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .service-modal .modal-icon { color: var(--primary); }
+    .mass-modal .modal-icon { color: #b8860b; }
+
+    .modal h3 {
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .modal .time {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 25px;
+    }
+
+    .modal-btn {
+      padding: 14px 40px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .modal-btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* Mobile */
+    @media (max-width: 1100px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .priests-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary);
+        padding: 20px;
+        flex-direction: column;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      }
+
+      nav.active { display: flex; }
+      .menu-toggle { display: block; }
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 1.8rem; }
+      .section-title h2 { font-size: 1.5rem; }
+      .event-item { flex-direction: column; text-align: center; }
+      .event-time { margin: 15px 0 0; }
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .priests-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo h1 { font-size: 0.95rem; }
+      .logo img { width: 55px; }
+      .btn { padding: 12px 24px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="logo.jpg" alt="شعار الكنيسة">
+        <div class="logo-text">
+          <h1>كنيسة العذراء والقديس بولس الرسول</h1>
+          <span>الحضرهة الجديدة</span>
+        </div>
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="mainNav">
+        <a href="#home">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#masses">القداسات</a>
+        <a href="#priests">الكهنة</a>
+        <a href="#events">الفعاليات</a>
+        <a href="#gallery">الصور</a>
+        <a href="#map">الموقع</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="cross-icon">✝</div>
+      <h2>كنيسة العذراء والقديس بولس الرسول</h2>
+      <p>الحضرة الجديدة </p>
+      <div class="hero-buttons">
+        <a href="#masses" class="btn btn-gold">
+          <i class="fas fa-church"></i>
+          مواعيد القداسات
+        </a>
+        <a href="#services" class="btn btn-outline">
+          <i class="fas fa-users"></i>
+          الخدمات
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="section-title">
+      <h2><i class="fas fa-users"></i> خدمات الكنيسة</h2>
+      <p>حيث تجتمع المحبه مع الخدمه</p>
+    </div>
+    <div class="cards-grid" id="servicesContainer"></div>
+  </section>
+
+  <!-- Masses -->
+  <section class="section" id="masses">
+    <div class="section-title">
+      <h2><i class="fas fa-church"></i> مواعيد القداسات</h2>
+      <p>خطوه نحو السماء ....تبدأ بالقداس</p>
+    </div>
+    <div class="cards-grid" id="massesContainer"></div>
+  </section>
+
+  <!-- Priests -->
+  <section class="section" id="priests">
+    <div class="section-title">
+      <h2><i class="fas fa-cross"></i> الآباء الكهنة</h2>
+      <p>قيادة روحية مخلصة لخدمة الكنيسة</p>
+    </div>
+    <div class="priests-grid">
+      <div class="priest-card">
+        <div class="priest-photo"><img src="boles.jpg" alt="أبونا بولس عوض"></div>
+        <div class="priest-info">
+          <h3 class="priest-name">أبونا بولس عوض</h3>
+          <p class="priest-role">كاهن الكنيسة</p>
+          <div class="social-links">
+            <a href="https://wa.me/201288869993" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/14YotRPAnnZ/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="priest-card">
+        <div class="priest-photo"><img src="salib (1).jpg" alt="أبونا صليب حكيم"></div>
+        <div class="priest-info">
+          <h3 class="priest-name">أبونا صليب حكيم</h3>
+          <p class="priest-role">كاهن الكنيسة</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/1EbbLrUK9B/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/+20 12 20711350" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="priest-card">
+        <div class="priest-photo"><img src="beshoy.jpg" alt="أبونا بيشوي اسحاق"></div>
+        <div class="priest-info">
+          <h3 class="priest-name">أبونا بيشوي اسحاق</h3>
+          <p class="priest-role">كاهن الكنيسة</p>
+          <div class="social-links">
+            <a href="https://wa.me/201224031316" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/1CjQJinrxx/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="priest-card">
+        <div class="priest-photo"><img src="botros.jpg" alt="أبونا بطرس رابح"></div>
+        <div class="priest-info">
+          <h3 class="priest-name">أبونا بطرس رابح</h3>
+          <p class="priest-role">كاهن الكنيسة</p>
+          <div class="social-links">
+            <a href="https://wa.me/201224664532" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/1L2KEBPydx/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" id="gallery">
+    <div class="section-title">
+      <h2><i class="fas fa-images"></i> معرض الصور</h2>
+      <p>لحظات جميلة من حياة الكنيسة</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="b.jpg" alt="كنيسة">
+        <div class="gallery-overlay"><span>قبه الكنيسه</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="a.png" alt="كنيسة">
+        <div class="gallery-overlay"><span>تدشين المذبح</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="c.png" alt="كنيسة">
+        <div class="gallery-overlay"><span>تدشين حامل الايقونات</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="d.png" alt="كنيسة">
+        <div class="gallery-overlay"><span>يوم التدشين</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="e.jpg" alt="كنيسة">
+        <div class="gallery-overlay"><span>قداسه البابا تواضروس </span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="f.jpg" alt="كنيسة">
+        <div class="gallery-overlay"><span>كلمه قداسه البابا تواضروس اثناء التدشين</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="g.jpg" alt="كنيسة">
+        <div class="gallery-overlay"><span>الأجواء الروحية</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="h.jpg" alt="كنيسة">
+        <div class="gallery-overlay"><span>تسليم الذبيحه للقس بطرس رابح</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-title">
+      <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة</h2>
+      <p>إجابات على أكثر الأسئلة شيوعاً</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>ما هو وقت القداس الرئيسي يوم الأحد؟</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          القداس الرئيسي يوم الأحد يكون في الساعة 6:00 و 8:00 صباحاً. يمكنك الحضور في أي وقت يناسبك.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>هل توجد خدمات للمعوزين؟</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          نعم، توجد خدمة خاصة بذوي الاحتياجات الخاصة يوم الاثنين الساعة 5 عصراً.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>ما هو موقع الكنيسة؟</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          تقع الكنيسة في الحضرة الجديدة، بالقرب من الحي السكني الرئيسي.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>كيف يمكنني حضور الخدمات؟</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          يمكنك الحضور مباشرة دون موعد مسبق. نرحب بالجميع في خدماتنا.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="map-section" id="map">
+    <div class="section-title">
+      <h2><i class="fas fa-map-marker-alt"></i> موقع الكنيسة</h2>
+      <p>تجدنا في الحضرة الجديدة</p>
+    </div>
+    <div class="map-container">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.915146754747!2d29.942144015344244!3d31.195366010056702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c3647ee395d7%3A0xc3e11dfe725a71e3!2sChurch%20of%20St.%20Mary%20and%20St.%20Paul!5e0!3m2!1sen!2seg!4v1773075137408!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>عن الكنيسة</h4>
+        <p>كنيسة العذراء والقديس بولس الرسول بالحضرة الجديدة، كنيسة متميزة بخدماتها المتنوعة لجميع الأعمار.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>روابط سريعة</h4>
+        <ul class="footer-links">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#services">الخدمات</a></li>
+          <li><a href="#masses">القداسات</a></li>
+          <li><a href="#map">الموقع</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>خدمات الكنيسة</h4>
+        <ul class="footer-links">
+          <li><a href="#services">خدمات الأطفال</a></li>
+          <li><a href="#services">خدمات الشباب</a></li>
+          <li><a href="#services">خدمات الرجال</a></li>
+          <li><a href="#services">خدمات السيدات</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>مواعيدنا</h4>
+        <ul class="footer-links">
+          <li>القداس: 6 و 8 ص - أحد</li>
+          <li>القداس: 8 ص - سبت</li>
+          <li>الخدمات: 6 م - الخميس</li>
+          <li>الدراسة: 6 م - أحد</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>تابعنا</h4>
+        <p style="margin-bottom: 15px;">تابع كل تفاصيل الكنيسة من خلال الروابط التالية:</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/1MxEvtQV5R/" target="_blank" title="صفحة البث المباشر">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.facebook.com/share/1GBdujtdZv/" target="_blank" title="ذكريات الكنيسة">
+            <i class="fab fa-facebook-messenger"></i>
+          </a>
+          <a href="https://youtube.com/@st.mary_st.paul_hg?si=b24NBKCf1NFf_EUI" target="_blank" title="قناة اليوتيوب">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>جميع الحقوق محفوظة © 2024 كنيسة العذراء والقديس بولس الرسول - الحضرية الجديدة</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" onclick="scrollToTop()" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+    <div class="modal">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div class="modal-icon" id="modalIcon"></div>
+      <h3 id="modalTitle"></h3>
+      <div class="time" id="modalTime"></div>
+      <button class="modal-btn" onclick="closeModal()">حسناً</button>
+    </div>
+  </div>
+
+  <script>
+    // Services Data
+    const services = [
+      {name: "ابتدائي ولاد", time: "الجمعة الساعة 12", icon: "fa-school"},
+      {name: "ابتدائي بنات", time: "الجمعة الساعة 3", icon: "fa-school"},
+      {name: "ملايكه", time: "الجمعة الساعة 3", icon: "fa-angel"},
+      {name: "اعدادي بنات", time: "الجمعة الساعة 12", icon: "fa-graduation-cap"},
+      {name: "ثانوي بنات", time: "الجمعة الساعة 1:30", icon: "fa-graduation-cap"},
+      {name: "اعدادي ولاد", time: "الخميس الساعة 6", icon: "fa-graduation-cap"},
+      {name: "ثانوي ولاد", time: "الخميس الساعة 7", icon: "fa-graduation-cap"},
+      {name: "شباب وشابات", time: "الخميس الساعة 7", icon: "fa-users"},
+      {name: "اجتماع الرجال", time: "الأحد الساعة 6", icon: "fa-male"},
+      {name: "دراسة الكتاب المقدس", time: "الأحد الساعة 6", icon: "fa-bible"},
+      {name: "إعداد خدام", time: "السبت الساعة 6", icon: "fa-hands-helping"},
+      {name: "هوس إيروف", time: "الجمعة الساعة 6", icon: "fa-music"},
+      {name: "مدرسة الشمامسة", time: "الجمعة الساعة 6", icon: "fa-music"},
+      {name: "اجتماع الأسرة", time: "السبت الساعة 6", icon: "fa-users"},
+      {name: "اجتماع الشمامسة", time: "أول أحد من كل شهر الساعة 6", icon: "fa-music"},
+      {name: "ذوي احتياجات", time: "الاثنين الساعة 5", icon: "fa-heart"},
+      {name: "سيدات", time: "الثلاثاء الساعة 6", icon: "fa-female"}
+    ];
+
+    // Masses Data
+    const masses = [
+      {name: "قداس يوم السبت", time: "8:00 صباحاً", icon: "fa-church"},
+      {name: "قداس يوم الأحد", time: "6:00 و 8:00 صباحاً", icon: "fa-church"},
+      {name: "قداس يوم الاثنين", time: "11:30 صباحاً", icon: "fa-church"},
+      {name: "قداس يوم الثلاثاء", time: "11:30 صباحاً", icon: "fa-church"},
+      {name: "قداس يوم الأربعاء", time: "9:30 و 12:00 ظهراً", icon: "fa-church"},
+      {name: "قداس يوم الخميس", time: "11:30 صباحاً", icon: "fa-church"},
+      {name: "قداس يوم الجمعة", time: "7:30 و 9:30 صباحاً", icon: "fa-church"}
+    ];
+
+    // Render Services
+    function renderServices() {
+      const container = document.getElementById('servicesContainer');
+      container.innerHTML = services.map((s, i) => `
+        <div class="card service-card" onclick="showService(${i})">
+          <div class="card-icon"><i class="fas ${s.icon}"></i></div>
+          <h3>${s.name}</h3>
+          <p>خدمة أسبوعية مخصصة لهذه الفئة العمرية</p>
+          <div class="card-time"><i class="fas fa-clock"></i> ${s.time}</div>
+        </div>
+      `).join('');
+    }
+
+    // Render Masses
+    function renderMasses() {
+      const container = document.getElementById('massesContainer');
+      container.innerHTML = masses.map((m, i) => `
+        <div class="card mass-card" onclick="showMass(${i})">
+          <div class="card-icon"><i class="fas ${m.icon}"></i></div>
+          <h3>${m.name}</h3>
+          <p>انضم إلينا في تقديس كلمة الله</p>
+          <div class="card-time"><i class="fas fa-clock"></i> ${m.time}</div>
+        </div>
+      `).join('');
+    }
+
+    // Show Service Modal
+    function showService(index) {
+      const s = services[index];
+      const modal = document.getElementById('modal');
+      modal.className = 'modal-overlay active service-modal';
+      document.getElementById('modalIcon').innerHTML = `<i class="fas ${s.icon}"></i>`;
+      document.getElementById('modalTitle').textContent = s.name;
+      document.getElementById('modalTime').textContent = s.time;
+    }
+
+    // Show Mass Modal
+    function showMass(index) {
+      const m = masses[index];
+      const modal = document.getElementById('modal');
+      modal.className = 'modal-overlay active mass-modal';
+      document.getElementById('modalIcon').innerHTML = `<i class="fas ${m.icon}"></i>`;
+      document.getElementById('modalTitle').textContent = m.name;
+      document.getElementById('modalTime').textContent = m.time;
+    }
+
+    // Close Modal
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
+
+    function closeModalOutside(e) {
+      if(e.target.id === 'modal') closeModal();
+    }
+
+    // Toggle Menu
+    function toggleMenu() {
+      document.getElementById('mainNav').classList.toggle('active');
+    }
+
+    // Scroll to Top
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Toggle FAQ
+    function toggleFaq(el) {
+      el.parentElement.classList.toggle('active');
+    }
+
+    // Back to Top Button
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if(window.scrollY > 300) btn.classList.add('show');
+      else btn.classList.remove('show');
+    });
+
+    // Initialize
+    renderServices();
+    renderMasses();
+  </script>
+</body>
+</html>
