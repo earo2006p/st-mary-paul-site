@@ -259,7 +259,7 @@
       box-shadow: var(--shadow);
       transition: all 0.4s ease;
       cursor: pointer;
-      border: 2px solid transparent;
+      border:  Asc 2px solid transparent;
     }
 
     .card:hover {
@@ -884,16 +884,16 @@
     </div>
     <div class="cards-grid" id="massesContainer"></div>
   </section>
-  
-<!-- Mass -->
+
+  <!-- Passion Week Masses -->
   <section class="section" id="mass">
     <div class="section-title">
       <h2><i class="fas fa-church"></i> مواعيد اسبوع الالام</h2>
       <p>اسبوع الامان .......في عالم الالام</p>
     </div>
-    <div class="cards-grid" id="massesContainer"></div>
+    <div class="cards-grid" id="passionContainer"></div>
   </section>
-  
+
   <!-- Priests -->
   <section class="section" id="priests">
     <div class="section-title">
@@ -1115,7 +1115,7 @@
   <!-- Modal -->
   <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
     <div class="modal">
-      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <span class="modal-close" onclick="closeModal()">×</span>
       <div class="modal-icon" id="modalIcon"></div>
       <h3 id="modalTitle"></h3>
       <div class="time" id="modalTime"></div>
@@ -1126,23 +1126,23 @@
   <script>
     // Services Data
     const services = [
-      {name: "ابتدائي ولاد", time: "الجمعة الساعة 12", icon: "fa-school"},
-      {name: "ابتدائي بنات", time: "الجمعة الساعة 3", icon: "fa-school"},
-      {name: "ملايكه", time: "الجمعة الساعة 3", icon: "fa-angel"},
-      {name: "اعدادي بنات", time: "الجمعة الساعة 12", icon: "fa-graduation-cap"},
+      {name: "ابتدائي ولاد", time: "الجمعة الساعة 12:00", icon: "fa-school"},
+      {name: "ابتدائي بنات", time: "الجمعة الساعة 3:00", icon: "fa-school"},
+      {name: "ملايكه", time: "الجمعة الساعة 3:00", icon: "fa-angel"},
+      {name: "اعدادي بنات", time: "الجمعة الساعة 12:00", icon: "fa-graduation-cap"},
       {name: "ثانوي بنات", time: "الجمعة الساعة 1:30", icon: "fa-graduation-cap"},
-      {name: "اعدادي ولاد", time: "الخميس الساعة 6", icon: "fa-graduation-cap"},
-      {name: "ثانوي ولاد", time: "الخميس الساعة 7", icon: "fa-graduation-cap"},
-      {name: "شباب وشابات", time: "الخميس الساعة 7", icon: "fa-users"},
-      {name: "اجتماع الرجال", time: "الأحد الساعة 6", icon: "fa-male"},
-      {name: "دراسة الكتاب المقدس", time: "الأحد الساعة 6", icon: "fa-bible"},
-      {name: "إعداد خدام", time: "السبت الساعة 6", icon: "fa-hands-helping"},
-      {name: "هوس إيروف", time: "الجمعة الساعة 6", icon: "fa-music"},
-      {name: "مدرسة الشمامسة", time: "الجمعة الساعة 6", icon: "fa-music"},
-      {name: "اجتماع الأسرة", time: "السبت الساعة 6", icon: "fa-users"},
-      {name: "اجتماع الشمامسة", time: "أول أحد من كل شهر الساعة 6", icon: "fa-music"},
-      {name: "ذوي احتياجات", time: "الاثنين الساعة 5", icon: "fa-heart"},
-      {name: "سيدات", time: "الثلاثاء الساعة 6", icon: "fa-female"}
+      {name: "اعدادي ولاد", time: "الخميس الساعة 6:00 م", icon: "fa-graduation-cap"},
+      {name: "ثانوي ولاد", time: "الخميس الساعة 7:00 م", icon: "fa-graduation-cap"},
+      {name: "شباب وشابات", time: "الخميس الساعة 7:00 م", icon: "fa-users"},
+      {name: "اجتماع الرجال", time: "الأحد الساعة 6:00 م", icon: "fa-male"},
+      {name: "دراسة الكتاب المقدس", time: "الأحد الساعة 6:00 م", icon: "fa-bible"},
+      {name: "إعداد خدام", time: "السبت الساعة 6:00 م", icon: "fa-hands-helping"},
+      {name: "هوس إيروف", time: "الجمعة الساعة 6:00 م", icon: "fa-music"},
+      {name: "مدرسة الشمامسة", time: "الجمعة الساعة 6:00 م", icon: "fa-music"},
+      {name: "اجتماع الأسرة", time: "السبت الساعة 6:00 م", icon: "fa-users"},
+      {name: "اجتماع الشمامسة", time: "أول أحد من كل شهر الساعة 6:00 م", icon: "fa-music"},
+      {name: "ذوي احتياجات", time: "الاثنين الساعة 5:00 م", icon: "fa-heart"},
+      {name: "سيدات", time: "الثلاثاء الساعة 6:00 م", icon: "fa-female"}
     ];
 
     // Masses Data
@@ -1155,22 +1155,22 @@
       {name: "قداس يوم الخميس", time: "11:30 صباحاً", icon: "fa-church"},
       {name: "قداس يوم الجمعة", time: "7:30 و 9:30 صباحاً", icon: "fa-church"}
     ];
-    
-// Masses Data
-    const mass = [
-      {name: "جمعه ختام الصوم", time: "7.30:11", icon: "fa-church"},
-      {name: "سبت لعازر", time: "8:10", icon: "fa-church"},
-      {name: "عشيه احد الشعانين", time: "6.30", icon: "fa-church"},
-      {name: "احد الشعانين", time: "7:1", icon: "fa-church"},
-      {name: "البصخه الصباحيه ", time: "ايام الاثنين و الثلاثاء و الاربعاء   8:11", icon: "fa-church"},
-      {name: "بصخه مسائيه", time: "ايام الاحد و الاثنين و الثلاثاء و الاربعاء     5:8", icon: "fa-church"},
-      {name: "خميس العهد ", time: "7:1", icon: "fa-church"}
-      {name: "بصخه خميس العهد المسائيه", time: "5:9", icon: "fa-church"},
-      {name: "الجمعه العظيمه", time: "7:5", icon: "fa-church"},
-      {name: "سهره ابو غلامسيس", time: "11:6", icon: "fa-church"},
-      {name: "قداس العيد", time: "7:11.30", icon: "fa-church"},
+
+    // Passion Week Masses Data (FIXED syntax + times)
+    const passionMasses = [
+      {name: "جمعه ختام الصوم", time: "7:30-11:00 صباحاً", icon: "fa-church"},
+      {name: "سبت لعازر", time: "8:00-10:00 صباحاً", icon: "fa-church"},
+      {name: "عشيه احد الشعانين", time: "6:30 مساءً", icon: "fa-church"},
+      {name: "احد الشعانين", time: "7:00-1:00 ظهراً", icon: "fa-church"},
+      {name: "البصخه الصباحيه", time: "الاثنين-الأربعاء 8:00-11:00 صباحاً", icon: "fa-church"},
+      {name: "بصخه مسائيه", time: "الأحد-الأربعاء 5:00-8:00 مساءً", icon: "fa-church"},
+      {name: "خميس العهد", time: "7:00-1:00 ظهراً", icon: "fa-church"},
+      {name: "بصخه خميس العهد المسائيه", time: "5:00-9:00 مساءً", icon: "fa-church"},
+      {name: "الجمعه العظيمه", time: "7:00 صباحاً - 5:00 مساءً", icon: "fa-church"},
+      {name: "سهره ابو غلامسيس", time: "11:00 ليلاً - 6:00 صباحاً", icon: "fa-church"},
+      {name: "قداس العيد", time: "7:00-11:30 صباحاً", icon: "fa-church"}
     ];
-    
+
     // Render Services
     function renderServices() {
       const container = document.getElementById('servicesContainer');
@@ -1197,6 +1197,19 @@
       `).join('');
     }
 
+    // NEW: Render Passion Masses
+    function renderPassionMasses() {
+      const container = document.getElementById('passionContainer');
+      container.innerHTML = passionMasses.map((m, i) => `
+        <div class="card mass-card" onclick="showPassionMass(${i})">
+          <div class="card-icon"><i class="fas ${m.icon}"></i></div>
+          <h3>${m.name}</h3>
+          <p>مواعيد أسبوع الآلام المقدس</p>
+          <div class="card-time"><i class="fas fa-clock"></i> ${m.time}</div>
+        </div>
+      `).join('');
+    }
+
     // Show Service Modal
     function showService(index) {
       const s = services[index];
@@ -1210,6 +1223,16 @@
     // Show Mass Modal
     function showMass(index) {
       const m = masses[index];
+      const modal = document.getElementById('modal');
+      modal.className = 'modal-overlay active mass-modal';
+      document.getElementById('modalIcon').innerHTML = `<i class="fas ${m.icon}"></i>`;
+      document.getElementById('modalTitle').textContent = m.name;
+      document.getElementById('modalTime').textContent = m.time;
+    }
+
+    // NEW: Show Passion Mass Modal
+    function showPassionMass(index) {
+      const m = passionMasses[index];
       const modal = document.getElementById('modal');
       modal.className = 'modal-overlay active mass-modal';
       document.getElementById('modalIcon').innerHTML = `<i class="fas ${m.icon}"></i>`;
@@ -1248,11 +1271,10 @@
       else btn.classList.remove('show');
     });
 
-    // Initialize
+    // Initialize - FIXED: Added renderPassionMasses()
     renderServices();
     renderMasses();
+    renderPassionMasses();
   </script>
 </body>
 </html>
-
-
