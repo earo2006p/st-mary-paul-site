@@ -839,6 +839,7 @@
         <a href="#home">الرئيسية</a>
         <a href="#services">الخدمات</a>
         <a href="#masses">القداسات</a>
+        <a href="#mass">اسبوع الالام</a>
         <a href="#priests">الكهنة</a>
         <a href="#events">الفعاليات</a>
         <a href="#gallery">الصور</a>
@@ -883,7 +884,14 @@
     </div>
     <div class="cards-grid" id="massesContainer"></div>
   </section>
-
+<!-- Mass -->
+  <section class="section" id="mass">
+    <div class="section-title">
+      <h2><i class="fas fa-church"></i> مواعيد اسبوع الالام</h2>
+      <p>اسبوع الامان .......في عالم الالام</p>
+    </div>
+    <div class="cards-grid" id="massesContainer"></div>
+  </section>
   <!-- Priests -->
   <section class="section" id="priests">
     <div class="section-title">
@@ -1145,7 +1153,20 @@
       {name: "قداس يوم الخميس", time: "11:30 صباحاً", icon: "fa-church"},
       {name: "قداس يوم الجمعة", time: "7:30 و 9:30 صباحاً", icon: "fa-church"}
     ];
-
+// Masses Data
+    const mass = [
+      {name: "جمعه ختام الصوم", time: "7.30:11", icon: "fa-church"},
+      {name: "سبت لعازر", time: "8:10", icon: "fa-church"},
+      {name: "عشيه احد الشعانين", time: "6.30", icon: "fa-church"},
+      {name: "احد الشعانين", time: "7:1", icon: "fa-church"},
+      {name: "البصخه الصباحيه ", time: "ايام الاثنين و الثلاثاء و الاربعاء   8:11", icon: "fa-church"},
+      {name: "بصخه مسائيه", time: "ايام الاحد و الاثنين و الثلاثاء و الاربعاء     5:8", icon: "fa-church"},
+      {name: "خميس العهد ", time: "7:1", icon: "fa-church"}
+      {name: "بصخه خميس العهد المسائيه", time: "5:9", icon: "fa-church"},
+      {name: "الجمعه العظيمه", time: "7:5", icon: "fa-church"},
+      {name: "سهره ابو غلامسيس", time: "11:6", icon: "fa-church"},
+      {name: "قداس العيد", time: "7:11.30", icon: "fa-church"},
+    ];
     // Render Services
     function renderServices() {
       const container = document.getElementById('servicesContainer');
