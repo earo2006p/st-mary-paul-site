@@ -1040,8 +1040,8 @@
   <!-- Passion Week Masses -->
   <section class="section" id="mass">
     <div class="section-title">
-      <h2><i class="fas fa-church"></i> مواعيد اسبوع الالام</h2>
-      <p>اسبوع الامان .......في عالم الالام</p>
+<h2><i class="fas fa-church"></i> مواعيد أسبوع الآلام في كنيسة العذراء والقديس بولس</h2>
+      <p>✅ قداس شم النسيم (تلميذي عمواس) | الاثنين 6-8 صباحاً</p>
     </div>
     <div class="cards-grid" id="passionContainer"></div>
   </section>
@@ -1331,18 +1331,27 @@
       {name: "قداس يوم الجمعة", time: "7:30 و 9:30 صباحاً", icon: "fa-church"}
     ];
 
-    const passionMasses = [
+    // كنيسة العذراء والقديس بولس
+    const stMaryPaulMasses = [
       {name: "جمعه ختام الصوم", time: "7:30-11:00 صباحاً", icon: "fa-church"},
       {name: "سبت لعازر", time: "8:00-10:00 صباحاً", icon: "fa-church"},
-      {name: "عشيه احد الشعانين", time: "6:30 مساءً", icon: "fa-church"},
-      {name: "احد الشعانين", time: "7:00صباحا - 1:00ظهرا ", icon: "fa-church"},
-      {name: "البصخه الصباحيه", time: "الاثنين : الأربعاء 8:00-11:00 صباحاً", icon: "fa-church"},
-      {name: "بصخه مسائيه", time: "الأحد:الأربعاء 5:00-8:00 مساءً", icon: "fa-church"},
-      {name: "خميس العهد", time: "7:00 صباحا-1:00 ظهرا", icon: "fa-church"},
-      {name: "بصخه خميس العهد المسائيه", time: "5:00-9:00 مساءً", icon: "fa-church"},
-      {name: "الجمعه العظيمه", time: "7:00 صباحاً - 5:00 مساءً", icon: "fa-church"},
-      {name: "سهره ابو غلامسيس", time: "11:00 ليلاً - 6:00 صباحاً", icon: "fa-church"},
-      {name: "قداس العيد", time: "7:00-11:30 ليلاً", icon: "fa-church"}
+      {name: "عشيه أحد الشعانين", time: "6:30 مساءً", icon: "fa-church"},
+      {name: "أحد الشعانين", time: "7:00 صباحاً - 1:00 ظهراً", icon: "fa-church"},
+      {name: "البصخة الصباحية", time: "الاثنين-الأربعاء 8:00-11:00 صباحاً", icon: "fa-church"},
+      {name: "بصخة مسائية", time: "الأحد-الأربعاء 5:00-8:00 مساءً", icon: "fa-church"},
+      {name: "خميس العهد", time: "7:00 صباحاً-1:00 ظهراً", icon: "fa-church"},
+      {name: "بصخة خميس العهد", time: "5:00-9:00 مساءً", icon: "fa-church"},
+      {name: "الجمعة العظيمة", time: "7:00 صباحاً - 5:00 مساءً", icon: "fa-church"},
+      {name: "سهرة أبو غلمسيس", time: "11:00 ليلاً - 6:00 صباحاً", icon: "fa-church"},
+      {name: "قداس العيد", time: "7:00-11:30 ليلاً", icon: "fa-church"},
+      {name: "🔥 قداس شم النسيم (تلميذي عمواس)", time: "الاثنين 6-8 صباحاً", icon: "fa-church"}
+    ];
+
+    // كنيسة الأنبا إبرام
+    const stAbramMasses = [
+      {name: "أحد الشعانين", time: "8-10 صباحاً", icon: "fa-cross"},
+      {name: "الجمعة العظيمة", time: "1-4 ظهراً", icon: "fa-cross"},
+      {name: "قداس العيد", time: "8-10:30 مساءً", icon: "fa-cross"}
     ];
 
     // ========== خاصية تتبع الزوار الجديدة ==========
@@ -1495,16 +1504,36 @@
       `).join('');
     }
 
-    function renderPassionMasses() {
+function renderPassionMasses() {
       const container = document.getElementById('passionContainer');
-      container.innerHTML = passionMasses.map((m, i) => `
+      
+      // عنوان كنيسة العذراء والقديس بولس
+      let html = '<div style="grid-column: 1 / -1; text-align: center; margin-bottom: 30px; padding: 20px; background: linear-gradient(135deg, var(--primary), var(--gold-light)); color: white; border-radius: 15px; font-size: 1.3rem; font-weight: 700;"><i class="fas fa-church"></i> كنيسة العذراء والقديس بولس الرسول</div>';
+      
+      // كروت كنيسة العذراء
+      html += stMaryPaulMasses.map((m, i) => `
         <div class="card mass-card" onclick="showPassionMass(${i})">
           <div class="card-icon"><i class="fas ${m.icon}"></i></div>
           <h3>${m.name}</h3>
-          <p>مواعيد أسبوع الآلام المقدس</p>
+          <p>كنيسة العذراء والقديس بولس</p>
           <div class="card-time"><i class="fas fa-clock"></i> ${m.time}</div>
         </div>
       `).join('');
+      
+      // عنوان كنيسة الأنبا إبرام
+      html += '<div style="grid-column: 1 / -1; text-align: center; margin: 40px 0 20px; padding: 15px; background: linear-gradient(135deg, #8b4513, #d2691e); color: white; border-radius: 15px; font-size: 1.3rem; font-weight: 700; box-shadow: var(--shadow);"><i class="fas fa-cross"></i> كنيسة الأنبا إبرام</div>';
+      
+      // كروت كنيسة الأنبا إبرام
+      html += stAbramMasses.map((m, i) => `
+        <div class="card mass-card abram-card" onclick="showAbramMass(${i})" style="border-left: 5px solid #d2691e;">
+          <div class="card-icon"><i class="fas ${m.icon}"></i></div>
+          <h3>${m.name}</h3>
+          <p>كنيسة الأنبا إبرام</p>
+          <div class="card-time"><i class="fas fa-clock"></i> <strong>${m.time}</strong></div>
+        </div>
+      `).join('');
+      
+      container.innerHTML = html;
     }
 
     function showService(index) {
@@ -1525,12 +1554,21 @@
       document.getElementById('modalTime').textContent = m.time;
     }
 
-    function showPassionMass(index) {
-      const m = passionMasses[index];
+function showPassionMass(index) {
+      const m = stMaryPaulMasses[index];
       const modal = document.getElementById('modal');
       modal.className = 'modal-overlay active mass-modal';
       document.getElementById('modalIcon').innerHTML = `<i class="fas ${m.icon}"></i>`;
-      document.getElementById('modalTitle').textContent = m.name;
+      document.getElementById('modalTitle').textContent = 'كنيسة العذراء والقديس بولس - ' + m.name;
+      document.getElementById('modalTime').textContent = m.time;
+    }
+
+    function showAbramMass(index) {
+      const m = stAbramMasses[index];
+      const modal = document.getElementById('modal');
+      modal.className = 'modal-overlay active mass-modal';
+      document.getElementById('modalIcon').innerHTML = `<i class="fas ${m.icon}"></i>`;
+      document.getElementById('modalTitle').textContent = 'كنيسة الأنبا إبرام - ' + m.name;
       document.getElementById('modalTime').textContent = m.time;
     }
 
