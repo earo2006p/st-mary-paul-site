@@ -990,7 +990,7 @@
         <a href="#home">الرئيسية</a>
         <a href="#services">الخدمات</a>
         <a href="#masses">القداسات</a>
-        <a href="#mass">اسبوع الالام</a>
+
         <a href="#priests">الكهنة</a>
         <a href="#events">الفعاليات</a>
         <a href="#gallery">الصور</a>
@@ -1031,20 +1031,12 @@
   <!-- Masses -->
   <section class="section" id="masses">
     <div class="section-title">
-      <h2><i class="fas fa-church"></i> مواعيد القداسات</h2>
-      <p>خطوه نحو السماء ....تبدأ بالقداس</p>
+      <h2><i class="fas fa-church"></i>  مواعيد القداسات خلال فتره الخماسين المقدسه</h2>
+      <p>   خطوه نحو السماء ....تبدأ بالقداس</p>
     </div>
     <div class="cards-grid" id="massesContainer"></div>
   </section>
 
-  <!-- Passion Week Masses -->
-  <section class="section" id="mass">
-    <div class="section-title">
-<h2><i class="fas fa-church"></i> مواعيد أسبوع الآلام في كنيسة العذراء والقديس بولس</h2>
-
-    </div>
-    <div class="cards-grid" id="passionContainer"></div>
-  </section>
 
   <!-- Priests -->
   <section class="section" id="priests">
@@ -1255,7 +1247,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>جميع الحقوق محفوظة © 2024 كنيسة العذراء والقديس بولس الرسول - الحضرية الجديدة</p>
+      <p>جميع الحقوق محفوظة © 2026 كنيسة العذراء والقديس بولس الرسول - الحضرة الجديدة</p>
     </div>
   </footer>
 
@@ -1324,34 +1316,9 @@
     const masses = [
       {name: "قداس يوم السبت", time: "8:00 صباحاً", icon: "fa-church"},
       {name: "قداس يوم الأحد", time: "6:00 و 8:00 صباحاً", icon: "fa-church"},
-      {name: "قداس يوم الاثنين", time: "11:30 صباحاً", icon: "fa-church"},
-      {name: "قداس يوم الثلاثاء", time: "11:30 صباحاً", icon: "fa-church"},
-      {name: "قداس يوم الأربعاء", time: "9:30 و 12:00 ظهراً", icon: "fa-church"},
-      {name: "قداس يوم الخميس", time: "11:30 صباحاً", icon: "fa-church"},
+      {name: "قداس يوم الأربعاء", time: "8:00 صباحا", icon: "fa-church"},
+      {name: "قداس يوم الخميس", time: "8:00 صباحاً", icon: "fa-church"},
       {name: "قداس يوم الجمعة", time: "7:30 و 9:30 صباحاً", icon: "fa-church"}
-    ];
-
-    // كنيسة العذراء والقديس بولس
-    const stMaryPaulMasses = [
-      {name: "جمعه ختام الصوم", time: "7:30-11:00 صباحاً", icon: "fa-church"},
-      {name: "سبت لعازر", time: "8:00-10:00 صباحاً", icon: "fa-church"},
-      {name: "عشيه أحد الشعانين", time: "6:30 مساءً", icon: "fa-church"},
-      {name: "أحد الشعانين", time: "7:00 صباحاً - 1:00 ظهراً", icon: "fa-church"},
-      {name: "البصخة الصباحية", time: "الاثنين-الأربعاء 8:00-11:00 صباحاً", icon: "fa-church"},
-      {name: "بصخة مسائية", time: "الأحد-الأربعاء 5:00-8:00 مساءً", icon: "fa-church"},
-      {name: "خميس العهد", time: "7:00 صباحاً-1:00 ظهراً", icon: "fa-church"},
-      {name: "بصخة خميس العهد", time: "5:00-9:00 مساءً", icon: "fa-church"},
-      {name: "الجمعة العظيمة", time: "7:00 صباحاً - 5:00 مساءً", icon: "fa-church"},
-      {name: "سهرة أبو غلمسيس", time: "11:00 ليلاً - 6:00 صباحاً", icon: "fa-church"},
-      {name: "قداس العيد", time: "7:00-11:30 ليلاً", icon: "fa-church"},
-      {name: "🔥 قداس شم النسيم (تلميذي عمواس)", time: "الاثنين 6-8 صباحاً", icon: "fa-church"}
-    ];
-
-    // كنيسة الأنبا إبرام
-    const stAbramMasses = [
-      {name: "أحد الشعانين", time: "8-10 صباحاً", icon: "fa-cross"},
-      {name: "الجمعة العظيمة", time: "1-4 ظهراً", icon: "fa-cross"},
-      {name: "قداس العيد", time: "8-10:30 مساءً", icon: "fa-cross"}
     ];
 
     // ========== خاصية تتبع الزوار الجديدة ==========
